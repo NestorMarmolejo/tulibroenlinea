@@ -1,0 +1,34 @@
+{% extends "base.html" %} 
+
+{% block tittle %} {{nombre}} {% endblock %} 
+
+{% block content %}
+
+<div style="margin-left: 50px; margin-top: 50px">
+  <h2>Modificar mi Usuario:</h2>
+  <form action="/moduloUsuario/Usuario/Eliminar2" method="GET">
+    <p>Ingrese su Usuario:</p>
+    <div style="margin-bottom: 20px">
+      <input
+        type="text"
+        name="usuario"
+        required="required"
+        value="{{usuario_usuario}}"
+      />
+    </div>
+    <p>Ingrese su Contraseña:</p>
+    <div style="margin-bottom: 20px">
+      <input
+        type="password"
+        name="contrasena"
+        required="required"
+        value="{{contrasena_usuario}}"
+      />
+    </div>
+    <p>¿Está seguro que desea eliminar su usuario?:</p>
+    <input type="submit" value="Eliminar" />
+  </form>
+
+</div>
+
+{% endblock %}

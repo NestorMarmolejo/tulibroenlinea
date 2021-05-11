@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block tittle %} {{nombre}} {% endblock %}
+
+{% block content %}
+
+<style>
+
+    #lista{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-transform: uppercase;
+    }
+
+    #lista li{
+        display: inline;
+        height: 100%;
+        margin: 0 10px;
+        position: relative;
+        font: menu;
+        font-size: 10px;
+    }
+
+    #lista a {
+        background: white;
+        border: 1px solid #006699;
+        text-decoration: none;
+        padding: 10px 25px;
+        margin: 10px;
+        color: black;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+
+    #lista a:hover {
+        background: cornflowerblue;
+        color: black;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+</style>
+
+<div style="margin-left: 50px; margin-top: 50px;">
+    <div style="margin-bottom: 20px;">
+    <h2>Modifique su Perfil</h2>
+    <output type="text" name="usuario" required="required" value="" placeholder="" autocomplete="off">
+    </div>
+    <p>Habla sobre ti:</p>
+    <input type="text" name="comentario" required="required" value="" placeholder="Escribe..." autocomplete="off">
+    <div style="margin-top: 10px; ">
+    <label>
+        <input type="checkbox" id="cbox1" value="first_checkbox"> Mensajeria Directa
+    </label><br>
+    <input type="checkbox" id="cbox2" value="second_checkbox"> 
+    <label for="cbox2">Suscribirse a Modulo noticias
+    </label><br>
+    </div>
+    <div style="margin-top: 20px;">
+    <button>Actualizar Perfil</button>
+    </div>
+    <div style="margin-top: 20px;">
+    <button>Eliminar Perfil</button>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,30 @@
+<html>
+    <body>
+
+    {% include "barra.html" %}
+    <h1>
+    Tu libro en linea :)
+    </h1>
+    <p>El creador es: {{id.upper}} {{nombre.upper}} {{contrasena}} </p>
+    <p>La fecha actual es: {{fecha}}</p>
+    {# esto es un comentario #}
+    {% comment %}
+    esto es otro 
+    comentario
+    {% endcomment %}
+    <p><strong>Lista</strong></p>
+    <p>
+        <ul>
+        {% if lista%}
+            {% for i in lista%}
+                <li>{{i}}</li>
+            {% endfor %}
+        
+        {% else %}
+            <p>No hay elementos</p>
+
+        {% endif %}
+        </ul>
+    </p>
+    </body>
+    </html>

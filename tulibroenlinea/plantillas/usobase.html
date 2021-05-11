@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block tittle %}ejemplo- {{nombre}} {% endblock %}
+
+{% block content %}
+
+<p>hola como estas</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cTrUFzZi-TM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+<div>
+    <input type="search" name="q" required="required" value="" placeholder="Título, Autor o ISBN" autocomplete="off">
+    <button id="botonBuscarHeader">Buscar</button>
+    <!-- <input type="hidden" name="cat" value="libros"> -->
+</div>
+
+{% endblock %}

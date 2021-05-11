@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block tittle %} {{nombre}} {% endblock %}
+
+{% block content %}
+
+<style>
+
+    #lista{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-transform: uppercase;
+    }
+
+    #lista li{
+        display: inline;
+        height: 100%;
+        margin: 0 10px;
+        position: relative;
+        font: menu;
+        font-size: 10px;
+    }
+
+    #lista a {
+        background: white;
+        border: 1px solid #006699;
+        text-decoration: none;
+        padding: 10px 25px;
+        margin: 10px;
+        color: black;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+
+    #lista a:hover {
+        background: cornflowerblue;
+        color: black;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+</style>
+
+<div style="margin-left: 50px; margin-top: 50px;">
+    <h2>Modificar un Libro:</h2>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="nombre" required="required" value="" placeholder="Titulo" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="issn" required="required" value="" placeholder="ISSN" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="autor" required="required" value="" placeholder="Autor" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="descripcion" required="required" value="" placeholder="Descripcion" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="genero" required="required" value="" placeholder="Genero" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="categoria" required="required" value="" placeholder="Categoria" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="idioma" required="required" value="" placeholder="Idioma" autocomplete="off">
+    </div>
+    <p>Fecha de publicacion</p>
+    <div style="margin-bottom: 20px;">
+    <input type="date" name="fechaP" required="required" value="" placeholder="dd / mm / aa" autocomplete="off">
+    </div>
+    <p>Fecha de lanzamiento</p>
+    <div style="margin-bottom: 20px;">
+    <input type="date" name="fechaL" required="required" value="" placeholder="dd / mm / aa" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="nroP" required="required" value="" placeholder="Nro Paginas" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="precio" required="required" value="" placeholder="Precio" autocomplete="off">
+    </div>
+    
+    <div>
+    <button>Actualizar</button>
+    </div>
+</div>
+
+{% endblock %}

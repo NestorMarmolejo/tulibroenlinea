@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block tittle %} {{nombre}} {% endblock %}
+
+{% block content %}
+
+<style>
+
+    #lista{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-transform: uppercase;
+    }
+
+    #lista li{
+        display: inline;
+        height: 100%;
+        margin: 0 10px;
+        position: relative;
+        font: menu;
+        font-size: 10px;
+    }
+
+    #lista a {
+        background: white;
+        border: 1px solid #006699;
+        text-decoration: none;
+        padding: 10px 25px;
+        margin: 10px;
+        color: black;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+
+    #lista a:hover {
+        background: cornflowerblue;
+        color: black;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+</style>
+
+<div style="margin-left: 50px; margin-top: 50px;">
+    <h2>Historico de cancelaciones de Reservas:</h2>
+    <div style="padding: 100; margin-top: 10px; background-color: white; width: 400;">
+    </div>
+</div>
+
+{% endblock %}

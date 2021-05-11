@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block tittle %} {{nombre}} {% endblock %}
+
+{% block content %}
+
+<style>
+
+    #lista{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-transform: uppercase;
+    }
+
+    #lista li{
+        display: inline;
+        height: 100%;
+        margin: 0 10px;
+        position: relative;
+        font: menu;
+        font-size: 10px;
+    }
+
+    #lista a {
+        background: white;
+        border: 1px solid #006699;
+        text-decoration: none;
+        padding: 10px 25px;
+        margin: 10px;
+        color: black;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+
+    #lista a:hover {
+        background: cornflowerblue;
+        color: black;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+</style>
+
+<div style="margin-left: 50px; margin-top: 50px;">
+    <h1>Datos del Administrador</h1>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="nombre" required="required" value="" placeholder="Nombre Completo" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="dni" required="required" value="" placeholder="DNI" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="email" name="correo" required="required" value="" placeholder="Correo Electronico" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="date" name="fecha" required="required" value="" placeholder="dd / mm / aa" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="sexo" required="required" value="" placeholder="Sexo" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="lugar" required="required" value="" placeholder="Lugar de Nacimiento" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="direccion" required="required" value="" placeholder="Direccion" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="text" name="usuario" required="required" value="" placeholder="Usuario" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="password" name="contrasena1" required="required" value="" placeholder="Contraseña" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <input type="password" name="contrasena2" required="required" value="" placeholder="Confirmar Contraseña" autocomplete="off">
+    </div>
+    <div style="margin-bottom: 20px;">
+    <button>Crear</button>
+    </div>
+</div>
+
+{% endblock %}

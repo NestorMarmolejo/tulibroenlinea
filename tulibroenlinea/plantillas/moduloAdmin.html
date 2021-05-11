@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block tittle %} {{nombre}} {% endblock %}
+
+{% block content %}
+
+<style>
+
+    #lista{
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        text-transform: uppercase;
+    }
+
+    #lista li{
+        display: inline;
+        height: 100%;
+        margin: 0 10px;
+        position: relative;
+        font: menu;
+        font-size: 10px;
+    }
+
+    #lista a {
+        background: white;
+        border: 1px solid #006699;
+        text-decoration: none;
+        padding: 10px 25px;
+        margin: 10px;
+        color: black;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+
+    #lista a:hover {
+        background: cornflowerblue;
+        color: black;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+    }
+</style>
+
+<div>
+    <h2>Bienvenido Administrador</h2>
+    <h2>Usuario</h2>
+    <ul id = "lista">
+        <li><a href="/moduloAdmin/Usuario/Crear">Crear</a></li>
+        <li><a href="/moduloAdmin/Usuario/Modificar">Modificar</a></li>
+        <li><a href="/moduloAdmin/Usuario/Listar">Listar</a></li>
+        <li><a href="/moduloAdmin/Usuario/Buscar">Buscar</a></li>
+        <li><a href="/moduloAdmin/Usuario/Eliminar">Eliminar</a></li>
+    </ul>
+
+    <h2>Libro</h2>
+    <ul id = "lista">
+        <li><a href="/moduloAdmin/Libro/Crear">Crear</a></li>
+        <li><a href="/moduloAdmin/Libro/Modificar">Modificar</a></li>
+        <li><a href="/moduloAdmin/Libro/Listar">Listar</a></li>
+        <li><a href="/moduloAdmin/Libro/Buscar">Buscar</a></li>
+        <li><a href="/moduloAdmin/Libro/Eliminar">Eliminar</a></li>
+    </ul>
+
+
+    <h2>Compra</h2>
+    <ul id = "lista">
+        <li><a href="/moduloAdmin/Compra/Historico">Historico</a></li>
+        <li><a href="/moduloAdmin/Compra/HistoricoCanc">Historico Cancelaciones</a></li>
+    </ul>
+
+    <h2>Reserva</h2>
+    <ul id = "lista">
+        <li><a href="/moduloAdmin/Reserva/Historico">Historico</a></li>
+        <li><a href="/moduloAdmin/Reserva/HistoricoCanc">Historico Cancelaciones</a></li>
+    </ul>
+
+    <h2>Devolucion</h2>
+    <ul id = "lista">
+        <li><a href="/moduloAdmin/Devolucion/Atender">Atender</a></li>
+        <li><a href="/moduloAdmin/Devolucion/Historico">Historico</a></li>
+    </ul>
+</div>
+
+
+
+{% endblock %}

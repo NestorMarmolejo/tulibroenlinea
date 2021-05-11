@@ -1,0 +1,33 @@
+<html style="background: lightblue;">
+
+<style>
+
+    #titulo{
+        margin: 0;
+        padding: 0;
+        color: white; 
+        text-align: left; 
+        font: initial;
+        font-size: 60px; 
+    }
+
+</style>
+<head>
+
+    <title>
+        {% block tittle %} {% endblock %}
+    </title>
+
+</head>
+
+<body>
+
+    <h1 id="titulo">Tu libro en linea</h1>
+    
+    {% include "barra.html" %}
+
+
+    {% block content %} {% endblock %}
+    <p style="background-color: cornflowerblue; color: white; text-align: right; width: 100%; ">Gracias por su visita</p>
+</body>
+</html>

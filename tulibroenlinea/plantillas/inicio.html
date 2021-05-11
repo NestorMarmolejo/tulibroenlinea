@@ -1,0 +1,88 @@
+{% extends "base.html" %} 
+
+{% block tittle %} {{nombre}} {% endblock %} 
+
+{% block content %}
+
+<section style="padding-top: 50; padding-top: 10; overflow: hidden">
+  <div
+    style="
+      padding: 30;
+      margin-top: 40px;
+      background-color: white;
+      width: 400;
+      float: right;
+    "
+  >
+    <h3 style="margin-top: 0; font-weight: normal; font-size: 20px">
+      Beneficios de comprar en
+      <strong style="color: black"> TuLibroEnLinea.com </strong>
+    </h3>
+    <ul style="font-weight: lighter; list-style: none">
+      <li>
+        <div style="display: inline-block; width: 350">
+          <h3 style="margin-bottom: 0; font-size: 30px; margin-top: 0">
+            Múltiples medios de Pago
+          </h3>
+          <p style="margin-top: 0; font-size: 20px">
+            Paga con tarjeta de crédito o débito.
+          </p>
+        </div>
+      </li>
+      <li>
+        <div style="display: inline-block; width: 350">
+          <h3 style="margin-bottom: 0; font-size: 30px; margin-top: 0">
+            Garantía de devolución
+          </h3>
+          <p style="margin-top: 0; font-size: 20px">
+            Si tu producto falla, puedes devolverlo y te devolveremos el dinero
+            o reemplazaremos tu producto.
+          </p>
+        </div>
+      </li>
+      <li>
+        <div style="display: inline-block; width: 350">
+          <h3 style="margin-bottom: 0; font-size: 30px; margin-top: 0">
+            Envíos a todo Colombia
+          </h3>
+          <p style="margin-top: 0; font-size: 20px">
+            TuLibroEnLinea llega a la puerta de tu casa.
+          </p>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div style="margin-left: 50px; margin-top: 50px">
+    <form action="/inicio2" method="GET">
+      <div style="margin-bottom: 20px">
+        <input
+          type="text"
+          name="usuario"
+          required="required"
+          value=""
+          placeholder="Usuario"
+          autocomplete="off"
+        />
+      </div>
+      <div style="margin-bottom: 20px">
+        <input
+          type="password"
+          name="contrasena"
+          required="required"
+          value=""
+          placeholder="Contraseña"
+          autocomplete="off"
+        />
+      </div>
+      <input type="submit" value="Iniciar Sesion" />
+    </form>
+
+    <form action="/registro" method="GET">
+      <input type="submit" value="Registrarse" />
+    </form>
+
+  </div>
+</section>
+
+{% endblock %}
