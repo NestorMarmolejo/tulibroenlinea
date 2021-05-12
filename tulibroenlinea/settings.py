@@ -49,7 +49,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'withenoise.middleware.WhiteNoiseMiddleware'
+    'withenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'tulibroenlinea.urls'
