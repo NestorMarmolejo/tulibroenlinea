@@ -1,17 +1,8 @@
-from django.http import HttpResponse, HttpResponseRedirect
-from django.template import Template, Context
-from django.template.loader import get_template
+from django.http import HttpResponseRedirect
+#from django.template import Template, Context
+#from django.template.loader import get_template
 from django.shortcuts import render
-import datetime
 from aplicacion.models import *
-
-def ejemplo(request):
-    
-    p1 = C.Root("1315", "marmolejo","sfsfs","machote")
-    nombre = "Tu libro en linea"
-    fecha_actual = datetime.datetime.now()
-    lista = ["a","b","c"]
-    return render(request, 'miplantilla.html', {"id":p1.idUsuario,"nombre":p1.usuario,"contrasena":p1.contraseña, "fecha":fecha_actual, "lista":lista})
 
 def usobase(request):
     nombre = "Tu libro en linea"
