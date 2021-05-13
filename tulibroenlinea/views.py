@@ -3,7 +3,6 @@ from django.template import Template, Context
 from django.template.loader import get_template
 from django.shortcuts import render
 import datetime
-from tulibroenlinea import clases as C
 from aplicacion.models import *
 
 def ejemplo(request):

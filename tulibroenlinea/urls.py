@@ -17,7 +17,6 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from tulibroenlinea.views import *
 
 urlpatterns = [
@@ -78,5 +77,3 @@ urlpatterns = [
     path('moduloUsuario/Perfil/Crear', moduloUsuario_Perfil_Crear),
     path('moduloUsuario/Perfil/Modificar', moduloUsuario_Perfil_Modificar),
 ] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT) 
-
-urlpatterns += staticfiles_urlpatterns()
