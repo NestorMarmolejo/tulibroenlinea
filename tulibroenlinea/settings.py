@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'tulibroenlinea.wsgi.application'
+WSGI_APPLICATION = 'tulibroenlinea.wsgi'
 
 
 # Database
