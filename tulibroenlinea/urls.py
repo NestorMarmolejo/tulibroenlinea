@@ -27,7 +27,6 @@ urlpatterns = [
     path('registro/', registro),
     path('registro2/', registro2),
     path('usobase/', usobase),
-    path('ejemplo/', ejemplo),
     
 
 
