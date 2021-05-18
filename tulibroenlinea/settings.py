@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 import os
 from pathlib import Path
-#import django_heroku
+import django_heroku
 import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # 'whitenoise.runserver_nostatic',
+    #'whitenoise.runserver_nostatic',
     'aplicacion',
 ]
 
@@ -85,7 +85,7 @@ from decouple import config
 
 DATABASES = {
     'default': dj_database_url.config(
-        default=config('DATABASE_URL')
+        #default=config('DATABASE_URL')
     )
 }
 
@@ -145,7 +145,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
 
-#django_heroku.settings(locals())
+django_heroku.settings(locals())
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
