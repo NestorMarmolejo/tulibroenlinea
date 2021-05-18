@@ -1,1 +1,1 @@
-web:gunicorn tulibroenlinea.wsgi --log-file -
+web: gunicorn tulibroenlinea.wsgi.application --log-file -
