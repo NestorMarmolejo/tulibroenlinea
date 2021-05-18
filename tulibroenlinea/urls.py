@@ -18,7 +18,9 @@ from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
 from tulibroenlinea.views import *
-from aplicacion import views
+
+from django.views.static import serve
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -76,4 +78,10 @@ urlpatterns = [
     path('moduloUsuario/Usuario/Mensajeria', moduloUsuario_Usuario_Mensajeria),
     path('moduloUsuario/Perfil/Crear', moduloUsuario_Perfil_Crear),
     path('moduloUsuario/Perfil/Modificar', moduloUsuario_Perfil_Modificar),
-] + static(settings.STATIC_URL, document_root = settings.STATIC_ROOT) 
+
+
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
+] 
+
+urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT) 
