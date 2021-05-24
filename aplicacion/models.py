@@ -7,48 +7,48 @@ class Persona(models.Model):
     apellidos = models.CharField(max_length = 20)
     dni = models.IntegerField()
     fechaN = models.DateField()
-    lugarN = models.CharField(max_length = 10)
+    lugarN = models.CharField(max_length = 20)
     direccion = models.CharField(max_length = 20)
-    genero = models.CharField(max_length = 10)
+    genero = models.CharField(max_length = 20)
     correo = models.EmailField()
     temas = models.CharField(max_length = 30)
 '''
 class Usuario(models.Model):
 
-    idUsuario = models.CharField(max_length = 10, primary_key = True)
-    usuario = models.CharField(max_length = 10)
-    contrasena = models.CharField(max_length = 10)
-    tipo = models.CharField(max_length = 10)
+    idUsuario = models.CharField(max_length = 20, primary_key = True)
+    usuario = models.CharField(max_length = 20)
+    contrasena = models.CharField(max_length = 20)
+    tipo = models.CharField(max_length = 20)
 
 class Administrador(models.Model):
 
-    idUsuario = models.CharField(max_length = 10, primary_key = True)
-    usuario = models.CharField(max_length = 10)
-    contrasena = models.CharField(max_length = 10)
-    tipo = models.CharField(max_length = 10)
+    idUsuario = models.CharField(max_length = 20, primary_key = True)
+    usuario = models.CharField(max_length = 20)
+    contrasena = models.CharField(max_length = 20)
+    tipo = models.CharField(max_length = 20)
         
 class Root(models.Model):
 
-    idUsuario = models.CharField(max_length = 10, primary_key = True)
-    usuario = models.CharField(max_length = 10)
-    contrasena = models.CharField(max_length = 10)
-    tipo = models.CharField(max_length = 10)
+    idUsuario = models.CharField(max_length = 20, primary_key = True)
+    usuario = models.CharField(max_length = 20)
+    contrasena = models.CharField(max_length = 20)
+    tipo = models.CharField(max_length = 20)
 
 class Cliente(models.Model):
 
-    idUsuario = models.CharField(max_length = 10, primary_key = True)
-    usuario = models.CharField(max_length = 10)
-    contrasena = models.CharField(max_length = 10)
-    tipo = models.CharField(max_length = 10)
+    idUsuario = models.CharField(max_length = 20, primary_key = True)
+    usuario = models.CharField(max_length = 20)
+    contrasena = models.CharField(max_length = 20)
+    tipo = models.CharField(max_length = 20)
 
 
     nombres = models.CharField(max_length = 20)
     apellidos = models.CharField(max_length = 20)
-    dni = models.CharField(max_length = 10)
+    dni = models.CharField(max_length = 20)
     fechaN = models.DateField()
-    lugarN = models.CharField(max_length = 10)
+    lugarN = models.CharField(max_length = 20)
     direccion = models.CharField(max_length = 20)
-    genero = models.CharField(max_length = 10)
+    genero = models.CharField(max_length = 20)
     correo = models.EmailField()
     temas = models.CharField(max_length = 30)
 
@@ -62,26 +62,26 @@ class Libro(models.Model):
     titulo = models.CharField(max_length = 20)
     escritor = models.CharField(max_length = 20)
     anho = models.CharField(max_length = 4)
-    genero = models.CharField(max_length = 10)
-    editorial = models.CharField(max_length = 10)
+    genero = models.CharField(max_length = 20)
+    editorial = models.CharField(max_length = 20)
     nroPaginas = models.CharField(max_length = 4)
     precio = models.IntegerField()
     ISSN = models.CharField(max_length = 20, primary_key = True)
-    idioma = models.CharField(max_length = 10)
-    estado = models.CharField(max_length = 10)
-    categoria = models.CharField(max_length = 10)
+    idioma = models.CharField(max_length = 20)
+    estado = models.CharField(max_length = 20)
+    categoria = models.CharField(max_length = 20)
     fechaPublicacion = models.DateField()
 
 class Noticia(models.Model):
 
-    nroNoticia = models.CharField(max_length = 10, primary_key = True)
+    nroNoticia = models.CharField(max_length = 20, primary_key = True)
     fecha = models.DateField()
     descripcion = models.CharField(max_length = 30)
 
 class Devolucion(models.Model):
 
     nroDevolucion = models.CharField(max_length = 20, primary_key = True)
-    libro = models.CharField(max_length = 10)
+    libro = models.CharField(max_length = 20)
     fecha = models.DateField()
     motivo = models.CharField(max_length = 30)
 
@@ -111,7 +111,7 @@ class Tarjeta(models.Model):
     cvv = models.IntegerField()
     fechaExpiracion = models.DateField()
     titular = models.CharField(max_length = 20)
-    tipo = models.CharField(max_length = 10)
+    tipo = models.CharField(max_length = 20)
     montoBase = models.IntegerField()
     montoLimite = models.IntegerField()
     saldo = models.IntegerField()
