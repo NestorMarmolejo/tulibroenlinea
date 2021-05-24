@@ -158,6 +158,8 @@
         name="contrasena"
         required="required"
         value="{{contrasena_usuario}}"
+        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" 
+        title="Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 8 caracteres o más"
       />
     </div>
     <div style="margin-bottom: 20px">

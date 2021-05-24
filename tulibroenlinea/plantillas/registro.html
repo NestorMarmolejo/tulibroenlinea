@@ -57,7 +57,7 @@
         <div style="margin-bottom: 20px;">
             <p>Contraseña:</p>
             <input type="password" name="contrasena" required="required" value="" placeholder="Contraseña"
-                autocomplete="off">
+                autocomplete="off" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 8 caracteres o más">
         </div>
         <div style="margin-bottom: 20px;">
             <p>Selecciona tus gustos:</p>
