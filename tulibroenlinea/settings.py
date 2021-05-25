@@ -83,22 +83,18 @@ WSGI_APPLICATION = 'tulibroenlinea.wsgi.application'
 import dj_database_url
 from decouple import config
 
-DATABASES = {
-    'default': dj_database_url.config(
-        #default=config('DATABASE_URL')
-    )
-}
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'tlel_db',
-#         'USER' : 'postgres',
-#         'PASSWORD': 'admin',
-#         'HOST': '127.0.0.1',
-#         'DATABASE_PORT': '5432',
-#     }
-# }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'dcjses813krj0l',
+        'USER' : 'fucgdzfmtypjlr',
+        'PASSWORD': '466c4fb9e0616eb6dd8c43341cb963669cea110460d125fa35c3787e9cee0e7a',
+        'HOST': 'ec2-3-233-7-12.compute-1.amazonaws.com',
+        'PORT': '5432',
+    }
+}
 
 
 # Password validation
