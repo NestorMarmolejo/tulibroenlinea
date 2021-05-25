@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    #'whitenoise.runserver_nostatic',
     'aplicacion',
 ]
 
@@ -61,7 +60,7 @@ ROOT_URLCONF = 'tulibroenlinea.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['C:/Users/Usuario Admin\Desktop/Lab de Software/ProyectoDjango/tulibroenlinea/tulibroenlinea/plantillas'],
+        'DIRS': ['C:/Users/Usuario Admin\Desktop/Lab de Software/ProyectoDjango/tulibroenlinea/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
