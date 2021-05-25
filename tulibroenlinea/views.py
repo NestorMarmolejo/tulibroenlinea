@@ -46,7 +46,7 @@ def registro2(request):
     usu = Usuario(dni_usuario,usuario_usuario, contrasena_usuario, "cliente")
     cli.save()
     usu.save()
-    return HttpResponseRedirect('http://127.0.0.1:8000/')  
+    return HttpResponseRedirect('https://tleladn.herokuapp.com/')  
 
 def moduloRoot(request):
     nombre = "Modulo Root"
