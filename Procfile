@@ -1,1 +1,1 @@
-web:gunicorn tulibroenlinea.wsgi
+web: gunicorn tulibroenlinea.wsgi
