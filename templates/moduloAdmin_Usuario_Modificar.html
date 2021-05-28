@@ -89,12 +89,16 @@
       />
     </div>
     <div style="margin-bottom: 20px">
-      <p>DNI::</p>
+      <p>DNI:</p>
       <input
         type="text"
         name="dni"
         required="required"
         value="{{dni_usuario}}"
+        pattern="^[0-9]+"
+        title="Debe contener solo numeros" 
+        maxlength="10" 
+        minlength="8">
       />
     </div>
     <div style="margin-bottom: 20px">
@@ -114,7 +118,7 @@
         required="required"
         value="{{fecha_usuario}}"
         min="1920-01-01" 
-        max="2021-05-23"
+        max="2003-01-01"
       />
     </div>
     <div style="margin-bottom: 20px">
@@ -371,12 +375,11 @@
     </div>
     <div style="margin-bottom: 20px">
       <p>Sexo:</p>
-      <input
-        type="text"
-        name="sexo"
-        required="required"
-        value="{{sexo_usuario}}"
-      />
+      <select name="sexo">
+        <option value="M">Masculino</option>
+        <option value="F">Femenino</option>
+        <option value="NN">No Binario</option>
+      </select>
     </div>
     <div style="margin-bottom: 20px">
       <p>Direccion de domicilio:</p>

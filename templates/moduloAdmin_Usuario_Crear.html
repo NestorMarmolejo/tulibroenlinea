@@ -65,7 +65,7 @@
         </div>
         <div style="margin-bottom: 20px;">
             <p>DNI:</p>
-            <input type="text" name="dni" required="required" value="" placeholder="DNI" autocomplete="off">
+            <input type="text" name="dni" required="required" value="" placeholder="DNI" autocomplete="off" pattern="^[0-9]+" title="Debe contener solo numeros" maxlength="10" minlength="8">
         </div>
         <div style="margin-bottom: 20px;">
             <p>Correo Electronico:</p>
@@ -74,7 +74,7 @@
         </div>
         <div style="margin-bottom: 20px;">
             <p>Fecha de nacimiento:</p>
-            <input type="date" name="fecha" required="required" value="" placeholder="dd / mm / aa" autocomplete="off" min="1920-01-01" max="2021-05-23">
+            <input type="date" name="fecha" required="required" value="" placeholder="dd / mm / aa" autocomplete="off" min="1920-01-01" max="2003-01-01">
         </div>
         <div style="margin-bottom: 20px;">
             <p>Lugar de nacimiento:</p>
@@ -330,7 +330,11 @@
         </div>
         <div style="margin-bottom: 20px;">
             <p>Sexo:</p>
-            <input type="text" name="sexo" required="required" value="" placeholder="Sexo" autocomplete="off">
+            <select name="sexo">
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+                <option value="NN">No Binario</option>
+            </select>
         </div>
         <div style="margin-bottom: 20px;">
             <p>Direccion de domicilio:</p>
