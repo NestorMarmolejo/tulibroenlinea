@@ -5,15 +5,14 @@
 {% block content %}
 
 <style>
-
-    #lista{
+    #lista {
         margin: 0;
         padding: 0;
         list-style: none;
         text-transform: uppercase;
     }
 
-    #lista li{
+    #lista li {
         display: inline;
         height: 100%;
         margin: 0 10px;
@@ -46,26 +45,35 @@
 </style>
 
 <div style="margin-left: 50px; margin-top: 50px;">
-    <div style="margin-bottom: 20px;">
-    <h2>Bienvenido:</h2>
-    <output type="text" name="usuario" required="required" value="" placeholder="" autocomplete="off">
-    </div>
-    <p>Habla sobre ti:</p>
-    <input type="text" name="comentario" required="required" value="" placeholder="Escribe..." autocomplete="off">
-    <div style="margin-top: 10px; ">
-    <label>
-        <input type="checkbox" id="cbox1" value="first_checkbox"> Mensajeria Directa
-    </label><br>
-    <input type="checkbox" id="cbox2" value="second_checkbox"> 
-    <label for="cbox2">Suscribirse a Modulo noticias
-    </label><br>
-    </div>
-    <div style="margin-top: 20px;">
-    <button>Crear Perfil</button>
-    </div>
-    <div style="margin-top: 20px;">
-    <button>Cancelar</button>
-    </div>
+    <form action="/moduloUsuario/Perfil/Crear2" method="GET">
+        <div style="margin-bottom: 20px;">
+            <h2>Bienvenido:</h2>
+            <output type="text" name="usuario" required="required" value="" placeholder="" autocomplete="off">
+        </div>
+        <p>Habla sobre ti:</p>
+        <input type="text" name="comentario" required="required" value="" placeholder="Escribe..." autocomplete="off">
+
+        <label>Foto de perfil</label>
+        <input type="file" mame="foto" id="foto">
+
+
+        <div style="margin-top: 10px; ">
+            <label>
+                <input type="checkbox" id="msj" value="first_checkbox"> Mensajeria Directa
+            </label><br>
+            <label>
+                <input type="checkbox" id="noti" value="second_checkbox"> Suscribirse a Noticias
+            </label><br>
+        </div>
+        <div style="margin-top: 20px;">
+            <input type="submit" value="Crear Perfil">
+        </div>
+    </form>
+    <form action="https://tleladn.herokuapp.com/moduloUsuario/" method="GET">
+        <div style="margin-top: 20px;">
+            <input type="submit" value="Cancelar">
+        </div>
+    </form>
 </div>
 
 {% endblock %}

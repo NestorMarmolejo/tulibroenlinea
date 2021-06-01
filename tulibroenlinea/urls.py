@@ -75,9 +75,11 @@ urlpatterns = [
     path('moduloUsuario/Usuario/Eliminar', moduloUsuario_Usuario_Eliminar),
     path('moduloUsuario/Usuario/Eliminar2', moduloUsuario_Usuario_Eliminar2),
 
-    path('moduloUsuario/Usuario/Mensajeria', moduloUsuario_Usuario_Mensajeria),
+    
     path('moduloUsuario/Perfil/Crear', moduloUsuario_Perfil_Crear),
+    path('moduloUsuario/Perfil/Crear2', moduloUsuario_Perfil_Crear),
     path('moduloUsuario/Perfil/Modificar', moduloUsuario_Perfil_Modificar),
+    path('moduloUsuario/Usuario/Mensajeria', moduloUsuario_Usuario_Mensajeria),
 
 
     url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 

@@ -4,6 +4,8 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from aplicacion.models import *
 
+usuario_global = []
+
 def usobase(request):
     nombre = "Tu libro en linea"
     return render(request, 'usobase.html', {"nombre":nombre})
@@ -25,6 +27,8 @@ def inicio2(request):
             return HttpResponseRedirect("/moduloAdmin/")
         elif usu[0].tipo == "cliente":
             return HttpResponseRedirect("/moduloUsuario/")
+    usuario_global.append(usu)
+
 
 def registro(request):
     nombre = "Crear Usuario"
@@ -42,7 +46,7 @@ def registro2(request):
     direccion_usuario = request.GET["direccion"]
     usuario_usuario = request.GET["usuario"]
     contrasena_usuario = request.GET["contrasena"]
-    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario, correo_usuario, correo_usuario, True, True)
+    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario, " ", " ", False, False, False, None, " ")
     usu = Usuario(dni_usuario,usuario_usuario, contrasena_usuario, "cliente")
     cli.save()
     usu.save()
@@ -262,7 +266,7 @@ def moduloUsuario_Usuario_Modificar3(request):
     direccion_usuario = request.GET["direccion"]
     usuario_usuario = request.GET["usuario"]
     contrasena_usuario = request.GET["contrasena"]
-    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario, "", "", True, True)
+    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario)
     cli.save()
     noti = True
     return render(request, 'moduloUsuario_Usuario_Modificar.html', {"nombre":nombre, "noti": noti})
@@ -288,7 +292,40 @@ def moduloUsuario_Perfil_Crear(request):
     nombre = "Crear Perfil"
     return render(request, 'moduloUsuario_Perfil_Crear.html', {"nombre":nombre})
 
+def moduloUsuario_Perfil_Crear2(request):
+
+    nombre = "Crear Perfil"
+
+    cli = Cliente.objects.filter(usuario = usuario_global[0][1], contrasena = usuario_global[0][2])
+    foto_usuario = request.GET["foto"]
+    desc_usuario = request.GET["desc"]
+    perfil_usuario = True
+    noti_usuario = request.GET["noti"]
+    msj_usuario = request.GET["msj"]
+
+    clinuevo = Cliente(cli[0].dni, cli[0].usuario, cli[0].contrasena, cli[0].tipo, cli[0].nombres, cli[0].apellidos, cli[0].dni, cli[0].fechaN, cli[0].lugarN, cli[0].direccion, cli[0].genero, cli[0].correo, " ", " ", noti_usuario, msj_usuario, perfil_usuario, foto_usuario, desc_usuario)
+    clinuevo.save()
+    
+    return render(request, 'moduloUsuario_Perfil_Crear.html', {"nombre":nombre})
+
 def moduloUsuario_Perfil_Modificar(request):
+    nombre = "Modificar Perfil"
+    return render(request, 'moduloUsuario_Perfil_Modificar.html', {"nombre":nombre})
+
+def moduloUsuario_Perfil_Modificar2(request):
+    nombre = "Modificar Perfil"
+    usuario = request.GET["usuario"]
+    contrasena = request.GET["contrasena"]
+    cli = Cliente.objects.filter(usuario = usuario, contrasena = contrasena)
+    if cli:
+        nombre_usuario = cli[0].nombres
+        apellido_usuario = cli[0].apellidos
+        dni_usuario = cli[0].dni
+    else: 
+        pass
+    return render(request, 'moduloUsuario_Perfil_Modificar.html', {"nombre":nombre})
+
+def moduloUsuario_Perfil_Modificar3(request):
     nombre = "Modificar Perfil"
     return render(request, 'moduloUsuario_Perfil_Modificar.html', {"nombre":nombre})
 
