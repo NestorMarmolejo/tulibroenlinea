@@ -25,7 +25,8 @@ def inicio2(request):
             return HttpResponseRedirect("/moduloAdmin/")
         elif usu[0].tipo == "cliente":
             return HttpResponseRedirect("/moduloUsuario/")
-    usuario_global.append(usu[0])
+    usuario_global.append(usuario)
+    usuario_global.append(contrasena)
 
 
 def registro(request):
@@ -294,7 +295,7 @@ def moduloUsuario_Perfil_Crear2(request):
 
     nombre = "Crear Perfil"
 
-    cli = Cliente.objects.filter(usuario = usuario_global[0][1], contrasena = usuario_global[0][2])
+    cli = Cliente.objects.filter(usuario = usuario_global[0], contrasena = usuario_global[1])
     foto_usuario = request.GET["foto"]
     desc_usuario = request.GET["desc"]
     perfil_usuario = True
