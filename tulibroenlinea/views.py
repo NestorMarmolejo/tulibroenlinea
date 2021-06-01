@@ -27,7 +27,7 @@ def inicio2(request):
             return HttpResponseRedirect("/moduloUsuario/")
     usuario_global.append(usuario)
     usuario_global.append(contrasena)
-
+    print(usuario_global)
 
 def registro(request):
     nombre = "Crear Usuario"
