@@ -297,12 +297,12 @@ def moduloUsuario_Perfil_Crear2(request):
 
     cli = Cliente.objects.filter(usuario = usuario_global[0], contrasena = usuario_global[1])
     foto_usuario = request.GET["foto"]
-    desc_usuario = request.GET["desc"]
+    desc_usuario = request.GET["comentario"]
     perfil_usuario = True
     noti_usuario = request.GET["noti"]
     msj_usuario = request.GET["msj"]
 
-    cli[0].foto = request.GET["desc"]
+    cli[0].foto = request.GET["comentario"]
     cli[0].save()
 
     clinuevo = Cliente(cli[0].dni, cli[0].usuario, cli[0].contrasena, cli[0].tipo, cli[0].nombres, cli[0].apellidos, cli[0].dni, cli[0].fechaN, cli[0].lugarN, cli[0].direccion, cli[0].genero, cli[0].correo, " ", " ", noti_usuario, msj_usuario, perfil_usuario, foto_usuario, desc_usuario)
