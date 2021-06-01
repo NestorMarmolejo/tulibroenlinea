@@ -15,8 +15,6 @@ def inicio(request):
     return render(request, 'inicio.html', {"nombre":nombre})
 
 def inicio2(request):
-    nombre = "inicio"
-    
     usuario = request.GET["usuario"]
     contrasena =  request.GET["contrasena"]
     usu = Usuario.objects.filter(usuario = usuario, contrasena = contrasena)
@@ -27,7 +25,7 @@ def inicio2(request):
             return HttpResponseRedirect("/moduloAdmin/")
         elif usu[0].tipo == "cliente":
             return HttpResponseRedirect("/moduloUsuario/")
-    usuario_global.append(usu)
+    usuario_global.append(usu[0])
 
 
 def registro(request):
