@@ -5,6 +5,7 @@ from django.shortcuts import render
 from aplicacion.models import *
 
 usuario_global = []
+cliente_global = [ ]
 
 def usobase(request):
     nombre = "Tu libro en linea"
@@ -15,6 +16,7 @@ def inicio(request):
     return render(request, 'inicio.html', {"nombre":nombre})
 
 def inicio2(request):
+    nombre = "inicio"
     usuario = request.GET["usuario"]
     contrasena =  request.GET["contrasena"]
     usu = Usuario.objects.filter(usuario = usuario, contrasena = contrasena)
@@ -26,8 +28,14 @@ def inicio2(request):
         elif usu[0].tipo == "admin":
             return HttpResponseRedirect("/moduloAdmin/")
         elif usu[0].tipo == "cliente":
+            cli = Cliente.objects.filter(usuario = usuario_global[0], contrasena = usuario_global[1])
+            usuario_global.append(cli[0].perfil)
+            cliente_global.append(cli[0])
             return HttpResponseRedirect("/moduloUsuario/")
-
+    else:
+        noti = True
+        return render(request, 'inicio.html', {"nombre":nombre, "noti": noti})
+        
 def registro(request):
     nombre = "Crear Usuario"
     return render(request, 'registro.html', {"nombre":nombre})
@@ -225,18 +233,13 @@ def moduloAdmin_Devolucion_Historico(request):
     return render(request, 'moduloAdmin_devolucion_Historico.html', {"nombre":nombre})
 
 def moduloUsuario(request):
+    perfil = usuario_global[2]
     nombre = "Modulo Usuario"
-    return render(request, 'moduloUsuario.html', {"nombre":nombre})
+    return render(request, 'moduloUsuario.html', {"nombre":nombre, "perfil":perfil})
 
 def moduloUsuario_Usuario_Modificar(request):
     nombre = "Modificar Usuario"
-    return render(request, 'moduloUsuario_Usuario_Modificar.html', {"nombre":nombre})
-
-def moduloUsuario_Usuario_Modificar2(request):
-    nombre = "Modificar Usuario"
-    usuario = request.GET["usuario"]
-    contrasena = request.GET["contrasena"]
-    cli = Cliente.objects.filter(usuario = usuario, contrasena = contrasena)
+    cli = Cliente.objects.filter(usuario = usuario_global[0], contrasena = usuario_global[1])
     if cli:
         nombre_usuario = cli[0].nombres
         apellido_usuario = cli[0].apellidos
@@ -252,8 +255,9 @@ def moduloUsuario_Usuario_Modificar2(request):
         pass
     return render(request, 'moduloUsuario_Usuario_Modificar.html', {"nombre":nombre, "nombre_usuario":nombre_usuario, "apellido_usuario":apellido_usuario, "dni_usuario":dni_usuario, "correo_usuario":correo_usuario, "fecha_usuario":fecha_usuario, "sexo_usuario":sexo_usuario, "lugar_usuario":lugar_usuario, "direccion_usuario":direccion_usuario, "usuario_usuario":usuario_usuario, "contrasena_usuario":contrasena_usuario})
 
-def moduloUsuario_Usuario_Modificar3(request):
+def moduloUsuario_Usuario_Modificar2(request):
     nombre = "Modificar Usuario"
+
     nombre_usuario = request.GET["nombre"]
     apellido_usuario = request.GET["apellido"]
     dni_usuario = request.GET["dni"]
@@ -264,7 +268,8 @@ def moduloUsuario_Usuario_Modificar3(request):
     direccion_usuario = request.GET["direccion"]
     usuario_usuario = request.GET["usuario"]
     contrasena_usuario = request.GET["contrasena"]
-    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario)
+    
+    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario, cliente_global[0].temas,cliente_global[0].top,cliente_global[0].suscripcion,cliente_global[0].mensajeria,cliente_global[0].perfil,cliente_global[0].foto,cliente_global[0].descripcion)
     cli.save()
     noti = True
     return render(request, 'moduloUsuario_Usuario_Modificar.html', {"nombre":nombre, "noti": noti})

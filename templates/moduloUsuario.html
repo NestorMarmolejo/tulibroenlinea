@@ -5,15 +5,14 @@
 {% block content %}
 
 <style>
-
-    #lista{
+    #lista {
         margin: 0;
         padding: 0;
         list-style: none;
         text-transform: uppercase;
     }
 
-    #lista li{
+    #lista li {
         display: inline;
         height: 100%;
         margin: 0 10px;
@@ -48,16 +47,21 @@
 <div>
     <h2>Bienvenido</h2>
     <h2>Usuario</h2>
-    <ul id = "lista">
+    <ul id="lista">
         <li><a href="/moduloUsuario/Usuario/Modificar">modificar</a></li>
-        <li><a href="/moduloUsuario/Usuario/Mensajeria">mensajeria</a></li>
+        <!-- <li><a href="/moduloUsuario/Usuario/Mensajeria">mensajeria</a></li> -->
         <li><a href="/moduloUsuario/Usuario/Eliminar">eliminar</a></li>
     </ul>
 
     <h2>Perfil</h2>
-    <ul id = "lista">
+    <ul id="lista">
+        {% if perfil %}
+        <li><a href="/moduloUsuario/Perfil/Modificar">modificar</a></li>
+        {% else %}
         <li><a href="/moduloUsuario/Perfil/Crear">crear</a></li>
         <li><a href="/moduloUsuario/Perfil/Modificar">modificar</a></li>
+        {% endif %}
+
     </ul>
 </div>
 

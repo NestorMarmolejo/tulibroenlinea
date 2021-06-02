@@ -71,7 +71,6 @@ urlpatterns = [
 
     path('moduloUsuario/Usuario/Modificar', moduloUsuario_Usuario_Modificar),
     path('moduloUsuario/Usuario/Modificar2', moduloUsuario_Usuario_Modificar2),
-    path('moduloUsuario/Usuario/Modificar3', moduloUsuario_Usuario_Modificar3),
     path('moduloUsuario/Usuario/Eliminar', moduloUsuario_Usuario_Eliminar),
     path('moduloUsuario/Usuario/Eliminar2', moduloUsuario_Usuario_Eliminar2),
 
