@@ -19,15 +19,14 @@ def inicio2(request):
     contrasena =  request.GET["contrasena"]
     usu = Usuario.objects.filter(usuario = usuario, contrasena = contrasena)
     if usu:
+        usuario_global.append(usuario)
+        usuario_global.append(contrasena)
         if usu[0].tipo == "root":
             return HttpResponseRedirect("/moduloRoot/")
         elif usu[0].tipo == "admin":
             return HttpResponseRedirect("/moduloAdmin/")
         elif usu[0].tipo == "cliente":
             return HttpResponseRedirect("/moduloUsuario/")
-    usuario_global.append(usuario)
-    usuario_global.append(contrasena)
-    print(usuario_global)
 
 def registro(request):
     nombre = "Crear Usuario"
@@ -299,13 +298,22 @@ def moduloUsuario_Perfil_Crear2(request):
     foto_usuario = request.GET["foto"]
     desc_usuario = request.GET["comentario"]
     perfil_usuario = True
-    noti_usuario = request.GET["noti"]
-    msj_usuario = request.GET["msj"]
+    try:
+        noti_usuario = request.GET["noti"]
+        if noti_usuario:
+            noti= True
+    except:
+        noti = False
 
-    cli[0].foto = request.GET["comentario"]
-    cli[0].save()
+    try:    
+        msj_usuario = request.GET["msj"]
+        if msj_usuario:
+            msj= True
+    except:
+        msj = False
 
-    clinuevo = Cliente(cli[0].dni, cli[0].usuario, cli[0].contrasena, cli[0].tipo, cli[0].nombres, cli[0].apellidos, cli[0].dni, cli[0].fechaN, cli[0].lugarN, cli[0].direccion, cli[0].genero, cli[0].correo, " ", " ", noti_usuario, msj_usuario, perfil_usuario, foto_usuario, desc_usuario)
+
+    clinuevo = Cliente(cli[0].dni, cli[0].usuario, cli[0].contrasena, cli[0].tipo, cli[0].nombres, cli[0].apellidos, cli[0].dni, cli[0].fechaN, cli[0].lugarN, cli[0].direccion, cli[0].genero, cli[0].correo, " ", " ", noti, msj, perfil_usuario, foto_usuario, desc_usuario)
     clinuevo.save()
     
     return render(request, 'moduloUsuario_Perfil_Crear.html', {"nombre":nombre})
