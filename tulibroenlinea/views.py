@@ -1,11 +1,9 @@
 from django.http import HttpResponseRedirect
-#from django.template import Template, Context
-#from django.template.loader import get_template
 from django.shortcuts import render
 from aplicacion.models import *
 
 usuario_global = []
-cliente_global = [ ]
+cliente_global = []
 
 def usobase(request):
     nombre = "Tu libro en linea"
@@ -30,7 +28,13 @@ def inicio2(request):
         elif usu[0].tipo == "cliente":
             cli = Cliente.objects.filter(usuario = usuario_global[0], contrasena = usuario_global[1])
             usuario_global.append(cli[0].perfil)
-            cliente_global.append(cli[0])
+            cliente_global.append(cli[0].temas)
+            cliente_global.append(cli[0].top)
+            cliente_global.append(cli[0].suscripcion)
+            cliente_global.append(cli[0].mensajeria)
+            cliente_global.append(cli[0].perfil)
+            cliente_global.append(cli[0].foto)
+            cliente_global.append(cli[0].descripcion)
             return HttpResponseRedirect("/moduloUsuario/")
     else:
         noti = True
@@ -268,9 +272,10 @@ def moduloUsuario_Usuario_Modificar2(request):
     direccion_usuario = request.GET["direccion"]
     usuario_usuario = request.GET["usuario"]
     contrasena_usuario = request.GET["contrasena"]
-    
-    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario, cliente_global[0].temas,cliente_global[0].top,cliente_global[0].suscripcion,cliente_global[0].mensajeria,cliente_global[0].perfil,cliente_global[0].foto,cliente_global[0].descripcion)
+    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario, cliente_global[0],cliente_global[1],cliente_global[2],cliente_global[3],cliente_global[4],cliente_global[5],cliente_global[6])
+    usu = Usuario(dni_usuario,usuario_usuario, contrasena_usuario, "cliente")
     cli.save()
+    usu.save()
     noti = True
     return render(request, 'moduloUsuario_Usuario_Modificar.html', {"nombre":nombre, "noti": noti})
 

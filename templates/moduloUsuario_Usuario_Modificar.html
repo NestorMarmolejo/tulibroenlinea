@@ -5,6 +5,19 @@
 {% block content %}
 
 <div style="margin-bottom: 20px">
+  <p>
+    <ul>
+      {% if cli %}
+          {% for i in cli %}
+              <li>{{i}}</li>
+          {% endfor %}
+      
+      {% else %}
+          <p>No hay elementos</p>
+
+      {% endif %}
+      </ul>
+  </p>
   {% if noti %}
   <p style="background-color: mediumseagreen">
     Actualizacion realizada con exito
