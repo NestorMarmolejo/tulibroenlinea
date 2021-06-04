@@ -57,7 +57,7 @@ class Cliente(models.Model):
     suscripcion = models.BooleanField()
     mensajeria = models.BooleanField()
     perfil = models.BooleanField()
-    foto = models.FileField()
+    foto = models.ImageField(upload_to="fotos", null =True)
     descripcion = models.CharField(max_length = 100) 
 
 class Libro(models.Model):
