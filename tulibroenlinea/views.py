@@ -306,17 +306,17 @@ def moduloUsuario_Perfil_Crear2(request):
 
     cli = Cliente.objects.filter(usuario = usuario_global[0], contrasena = usuario_global[1])
     foto_usuario = request.FILES.get["foto"]
-    desc_usuario = request.GET["comentario"]
+    desc_usuario = request.POST.get["comentario"]
     perfil_usuario = True
     try:
-        noti_usuario = request.GET["noti"]
+        noti_usuario = request.POST.get["noti"]
         if noti_usuario:
             noti= True
     except:
         noti = False
 
     try:    
-        msj_usuario = request.GET["msj"]
+        msj_usuario = request.POST.get["msj"]
         if msj_usuario:
             msj= True
     except:
