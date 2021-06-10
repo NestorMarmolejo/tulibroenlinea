@@ -18,7 +18,7 @@
             <h2>Bienvenido:</h2>
         </div>
         <p>Habla sobre ti:</p>
-        <input type="text" name="comentario" required="required" value="{{desc_usuario}}" autocomplete="off">
+        <input type="text" name="comentario" required="required" value="{{descripcion}}" autocomplete="off">
         <br>
         <label>Foto de perfil</label>
         <br>
@@ -30,13 +30,13 @@
         <input type="file" name="foto" id="foto">
 
         <div style="margin-top: 10px; ">
-            {% if msj %}
+            {% if mensajeria %}
                 <label><input type="checkbox" name="msj" id="msj" value= "on" checked> Mensajeria Directa</label><br>
             {% else %}
                 <label><input type="checkbox" name="msj" id="msj" value= "on"> Mensajeria Directa</label><br>
             {% endif %}
             
-            {% if noti %}
+            {% if suscripcion %}
                 <label><input type="checkbox" name= "noti" id="noti" value="on" checked> Suscripcion Noticias</label>
             {% else %}
                 <label><input type="checkbox" name= "noti" id="noti" value="on"> Suscripcion Noticias</label>
