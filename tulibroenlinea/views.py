@@ -356,17 +356,51 @@ def moduloUsuario_Perfil_Modificar2(request):
         contrasena_usuario = cli[0].contrasena
         temas_usuario = cli[0].temas
         top_usuario = cli[0].top
-        perfil_usuario = cli[0].perfil
-        noti_usuario = request.POST.get["noti"]
-        msj_usuario = request.POST.get["msj"]
+        perfil_usuario = cli[0].perfil    
         foto_usuario = request.POST.get["foto"]
         desc_usuario = request.POST.get["comentario"]
+        try:
+            noti_usuario = request.POST.get["noti"]
+            if noti_usuario:
+                noti= True
+        except:
+            noti = False
+
+        try:    
+            msj_usuario = request.POST.get["msj"]
+            if msj_usuario:
+                msj= True
+        except:
+            msj = False
+        else:
+            pass
+    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario, temas_usuario, top_usuario, noti, msj, perfil_usuario, foto_usuario, desc_usuario)
+    cli.save()
+    notif = True
+    return render(request, 'moduloUsuario_Perfil_Modificar.html', {"nombre":nombre, "noti":notif})
+
+def moduloUsuario_Perfil_Eliminar(request):
+    nombre = "Eliminar Perfil"
+    cli = Cliente.objects.filter(usuario = usuario_global[0], contrasena = usuario_global[1])
+    if cli:
+        nombre_usuario = cli[0].nombres
+        apellido_usuario = cli[0].apellidos
+        dni_usuario = cli[0].dni
+        correo_usuario = cli[0].correo
+        fecha_usuario = cli[0].fechaN
+        sexo_usuario = cli[0].genero
+        lugar_usuario = cli[0].lugarN
+        direccion_usuario = cli[0].direccion
+        usuario_usuario = cli[0].usuario
+        contrasena_usuario = cli[0].contrasena
+        temas_usuario = cli[0].temas
+        top_usuario = cli[0].top
+        perfil_usuario = False
     else:
         pass
-    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario, temas_usuario, top_usuario, noti_usuario, msj_usuario, perfil_usuario, foto_usuario, desc_usuario)
+    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario, temas_usuario, top_usuario, False, False, perfil_usuario, " ", " ")
     cli.save()
-    noti = True
-    return render(request, 'moduloUsuario_Perfil_Modificar.html', {"nombre":nombre, "noti":noti})
+    return HttpResponseRedirect("https://tleladn.herokuapp.com/moduloUsuario/") 
 
 def moduloUsuario_Usuario_Mensajeria(request):
     nombre = "Modificar Usuario"
