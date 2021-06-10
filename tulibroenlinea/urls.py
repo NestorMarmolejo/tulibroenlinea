@@ -78,6 +78,7 @@ urlpatterns = [
     path('moduloUsuario/Perfil/Crear', moduloUsuario_Perfil_Crear),
     path('moduloUsuario/Perfil/Crear2', moduloUsuario_Perfil_Crear2),
     path('moduloUsuario/Perfil/Modificar', moduloUsuario_Perfil_Modificar),
+    path('moduloUsuario/Perfil/Modificar', moduloUsuario_Perfil_Modificar2),
     path('moduloUsuario/Usuario/Mensajeria', moduloUsuario_Usuario_Mensajeria),
 
 

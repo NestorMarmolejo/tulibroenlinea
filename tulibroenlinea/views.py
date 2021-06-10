@@ -330,24 +330,43 @@ def moduloUsuario_Perfil_Crear2(request):
 
 def moduloUsuario_Perfil_Modificar(request):
     nombre = "Modificar Perfil"
-    return render(request, 'moduloUsuario_Perfil_Modificar.html', {"nombre":nombre})
+    cli = Cliente.objects.filter(usuario = usuario_global[0], contrasena = usuario_global[1])
+    if cli:
+        suscripcion = cli[0].suscripcion
+        mensajeria = cli[0].mensajeria
+        foto = cli[0].foto
+        descripcion = cli[0].descripcion
+    else: 
+        pass
+    return render(request, 'moduloUsuario_Perfil_Modificar.html', {"nombre":nombre, "suscripcion":suscripcion,"mensajeria":mensajeria,"foto":foto,"descripcion":descripcion})
 
 def moduloUsuario_Perfil_Modificar2(request):
     nombre = "Modificar Perfil"
-    usuario = request.GET["usuario"]
-    contrasena = request.GET["contrasena"]
-    cli = Cliente.objects.filter(usuario = usuario, contrasena = contrasena)
+    cli = Cliente.objects.filter(usuario = usuario_global[0], contrasena = usuario_global[1])
     if cli:
         nombre_usuario = cli[0].nombres
         apellido_usuario = cli[0].apellidos
         dni_usuario = cli[0].dni
-    else: 
+        correo_usuario = cli[0].correo
+        fecha_usuario = cli[0].fechaN
+        sexo_usuario = cli[0].genero
+        lugar_usuario = cli[0].lugarN
+        direccion_usuario = cli[0].direccion
+        usuario_usuario = cli[0].usuario
+        contrasena_usuario = cli[0].contrasena
+        temas_usuario = cli[0].temas
+        top_usuario = cli[0].top
+        perfil_usuario = cli[0].perfil
+        noti_usuario = request.POST.get["noti"]
+        msj_usuario = request.POST.get["msj"]
+        foto_usuario = request.POST.get["foto"]
+        desc_usuario = request.POST.get["comentario"]
+    else:
         pass
-    return render(request, 'moduloUsuario_Perfil_Modificar.html', {"nombre":nombre})
-
-def moduloUsuario_Perfil_Modificar3(request):
-    nombre = "Modificar Perfil"
-    return render(request, 'moduloUsuario_Perfil_Modificar.html', {"nombre":nombre})
+    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario, temas_usuario, top_usuario, noti_usuario, msj_usuario, perfil_usuario, foto_usuario, desc_usuario)
+    cli.save()
+    noti = True
+    return render(request, 'moduloUsuario_Perfil_Modificar.html', {"nombre":nombre, "noti":noti})
 
 def moduloUsuario_Usuario_Mensajeria(request):
     nombre = "Modificar Usuario"
