@@ -305,7 +305,7 @@ def moduloUsuario_Perfil_Crear2(request):
     nombre = "Crear Perfil"
 
     cli = Cliente.objects.filter(usuario = usuario_global[0], contrasena = usuario_global[1])
-    foto_usuario = request.FILES.get["foto"]
+    foto_usuario = request.FILES.get('foto')
     desc_usuario = request.POST.get["comentario"]
     perfil_usuario = True
     try:
