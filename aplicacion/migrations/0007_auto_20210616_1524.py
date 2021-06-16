@@ -37,7 +37,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='administrador',
             name='fechaN',
-            field=models.DateField(default='23/3/1999'),
+            field=models.DateField(default='1999-03-12'),
             preserve_default=False,
         ),
         migrations.AddField(
