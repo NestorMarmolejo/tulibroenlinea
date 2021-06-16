@@ -1,6 +1,6 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
 
-{% block tittle %} {{nombre}} {% endblock %} 
+{% block tittle %} {{nombre}} {% endblock %}
 
 {% block content %}
 
@@ -45,103 +45,49 @@
 </style>
 
 <div style="margin-bottom: 20px">
-    {% if noti %}
-    <p style="background-color: mediumseagreen">
-        Libro creado con exito
-    </p>
-    {% endif %}
+  {% if noti %}
+  <p style="background-color: mediumseagreen">
+    Libro creado con exito
+  </p>
+  {% endif %}
 </div>
 
 <div style="margin-left: 50px; margin-top: 50px">
-  <h2>Agregar un Libro:</h2>
   <form action="/moduloAdmin/Libro/Crear2" method="POST" enctype="multipart/form-data">{% csrf_token %}
+    <div style="margin-bottom: 20px;">
+      <h2>Agregar un Libro:</h2>
+    </div>
     <div style="margin-bottom: 20px">
       <p>Titulo:</p>
-      <input
-        type="text"
-        name="titulo"
-        required="required"
-        value=""
-        placeholder="Titulo"
-        autocomplete="off"
-      />
+      <input type="text" name="titulo" required="required" value="" placeholder="Titulo" autocomplete="off">
     </div>
     <div style="margin-bottom: 20px">
       <p>ISSN:</p>
-      <input
-        type="text"
-        name="issn"
-        required="required"
-        value=""
-        placeholder="ISSN"
-        autocomplete="off"
-      />
+      <input type="text" name="issn" required="required" value="" placeholder="ISSN" autocomplete="off">
     </div>
     <div style="margin-bottom: 20px">
       <p>Autor:</p>
-      <input
-        type="text"
-        name="autor"
-        required="required"
-        value=""
-        placeholder="Autor"
-        autocomplete="off"
-      />
+      <input type="text" name="autor" required="required" value="" placeholder="Autor" autocomplete="off">
     </div>
     <div style="margin-bottom: 20px">
-        <p>Editorial:</p>
-        <input
-          type="text"
-          name="editorial"
-          required="required"
-          value=""
-          placeholder="Editorial"
-          autocomplete="off"
-        />
-      </div>
+      <p>Editorial:</p>
+      <input type="text" name="editorial" required="required" value="" placeholder="Editorial" autocomplete="off">
+    </div>
     <div style="margin-bottom: 20px">
       <p>Descripcion:</p>
-      <input
-        type="text"
-        name="descripcion"
-        required="required"
-        value=""
-        placeholder="Descripcion"
-        autocomplete="off"
-      />
+      <input type="text" name="descripcion" required="required" value="" placeholder="Descripcion" autocomplete="off">
     </div>
     <div style="margin-bottom: 20px">
       <p>Genero:</p>
-      <input
-        type="text"
-        name="genero"
-        required="required"
-        value=""
-        placeholder="Genero"
-        autocomplete="off"
-      />
+      <input type="text" name="genero" required="required" value="" placeholder="Genero" autocomplete="off">
     </div>
     <div style="margin-bottom: 20px">
       <p>Categoria:</p>
-      <input
-        type="text"
-        name="categoria"
-        required="required"
-        value=""
-        placeholder="Categoria"
-        autocomplete="off"
-      />
+      <input type="text" name="categoria" required="required" value="" placeholder="Categoria" autocomplete="off">
     </div>
     <div style="margin-bottom: 20px">
       <p>Idioma:</p>
-      <input
-        type="text"
-        name="idioma"
-        required="required"
-        value=""
-        placeholder="Idioma"
-        autocomplete="off"
-      />
+      <input type="text" name="idioma" required="required" value="" placeholder="Idioma" autocomplete="off">
     </div>
     <div style="margin-bottom: 20px">
       <p>Estado:</p>
@@ -153,58 +99,27 @@
 
     <div style="margin-bottom: 20px">
       <p>Fecha de publicacion:</p>
-      <input
-        type="date"
-        name="fechaP"
-        required="required"
-        value=""
-        placeholder="dd / mm / aa"
-        autocomplete="off"
-      />
+      <input type="date" name="fechaP" required="required" value="" placeholder="dd / mm / aa" autocomplete="off">
     </div>
 
     <div style="margin-bottom: 20px">
       <p>Fecha de lanzamiento:</p>
-      <input
-        type="date"
-        name="fechaL"
-        required="required"
-        value=""
-        placeholder="dd / mm / aa"
-        autocomplete="off"
-      />
+      <input type="date" name="fechaL" required="required" value="" placeholder="dd / mm / aa" autocomplete="off">
     </div>
     <div style="margin-bottom: 20px">
       <p>Nro Paginas:</p>
-      <input
-        type="text"
-        name="nroP"
-        required="required"
-        value=""
-        placeholder="Nro Paginas"
-        autocomplete="off"
-      />
+      <input type="text" name="nroP" required="required" value="" placeholder="Nro Paginas" autocomplete="off">
     </div>
     <div style="margin-bottom: 20px">
       <p>Precio:</p>
-      <input
-        type="text"
-        name="precio"
-        required="required"
-        value=""
-        placeholder="Precio"
-        autocomplete="off"
-      />
+      <input type="text" name="precio" required="required" value="" placeholder="Precio" autocomplete="off">
     </div>
     <div style="margin-bottom: 20px">
-        <p>Caratula:</p>
-        <br>
-        <input type="file" name="foto" id="foto">
+      <p>Caratula:</p>
+      <br>
+      <input type="file" name="foto" id="foto">
     </div>
-
-    <div>
-      <input type="submit" value="Guardar" />
-    </div>
+      <input type="submit" value="Guardar">
   </form>
 </div>
 
