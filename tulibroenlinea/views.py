@@ -222,14 +222,14 @@ def moduloAdmin_Libro_Crear2(request):
     desc_libro = request.POST.get["descripcion"]
     genero_libro = request.POST.get["genero"]
     editorial_libro = request.POST.get["editorial"]
-    nroP_libro = request.POST.get["nroPaginas"]
+    nroP_libro = request.POST.get["nroP"]
     precio_libro = request.POST.get["precio"]
     issn_libro = request.POST.get["isnn"]
     idioma_libro = request.POST.get["idioma"]
     estado_libro = request.POST.get["estado"]
     categoria_libro = request.POST.get["categoria"]
-    fechaP_libro = request.POST.get["fechaPublicacion"]
-    fechaL_libro = request.POST.get["fechaLanzamiento"]
+    fechaP_libro = request.POST.get["fechaP"]
+    fechaL_libro = request.POST.get["fechaL"]
     caratula_libro = request.FILES.get('foto')
     libro = Libro(titulo_libro, autor_libro, desc_libro, genero_libro, editorial_libro, nroP_libro, precio_libro, issn_libro, idioma_libro, estado_libro, categoria_libro, fechaP_libro, fechaL_libro, caratula_libro)
     libro.save()
