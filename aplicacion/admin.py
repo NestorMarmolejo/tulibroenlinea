@@ -4,6 +4,7 @@ from aplicacion.models import *
 
 admin.site.register(Cliente)
 admin.site.register(Usuario)
+admin.site.register(Administrador)
 admin.site.register(Tarjeta)
 admin.site.register(Libro)
 admin.site.register(Compra)
