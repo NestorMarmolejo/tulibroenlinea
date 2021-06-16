@@ -55,6 +55,7 @@ urlpatterns = [
     path('moduloAdmin/Usuario/Eliminar3', moduloAdmin_Usuario_Eliminar3),
 
     path('moduloAdmin/Libro/Crear', moduloAdmin_Libro_Crear),
+    path('moduloAdmin/Libro/Crear2', moduloAdmin_Libro_Crear2),
     path('moduloAdmin/Libro/Modificar', moduloAdmin_Libro_Modificar),
     path('moduloAdmin/Libro/Listar', moduloAdmin_Libro_Listar),
     path('moduloAdmin/Libro/Buscar', moduloAdmin_Libro_Buscar),

@@ -72,8 +72,8 @@ class Cliente(models.Model):
 class Libro(models.Model):
     
     titulo = models.CharField(max_length = 20)
-    escritor = models.CharField(max_length = 20)
-    anho = models.CharField(max_length = 4)
+    autor = models.CharField(max_length = 20)
+    descripcion = models.CharField(max_length = 120)
     genero = models.CharField(max_length = 20)
     editorial = models.CharField(max_length = 20)
     nroPaginas = models.CharField(max_length = 4)
@@ -83,6 +83,8 @@ class Libro(models.Model):
     estado = models.CharField(max_length = 20)
     categoria = models.CharField(max_length = 20)
     fechaPublicacion = models.DateField()
+    fechaLanzamiento = models.DateField()
+    caratula = models.ImageField(upload_to="caratulas", null =True)
 
 class Noticia(models.Model):
 
