@@ -26,6 +26,15 @@ class Administrador(models.Model):
     usuario = models.CharField(max_length = 20)
     contrasena = models.CharField(max_length = 20)
     tipo = models.CharField(max_length = 20)
+
+    nombres = models.CharField(max_length = 20)
+    apellidos = models.CharField(max_length = 20)
+    dni = models.CharField(max_length = 20)
+    fechaN = models.DateField()
+    lugarN = models.CharField(max_length = 20)
+    direccion = models.CharField(max_length = 20)
+    genero = models.CharField(max_length = 20)
+    correo = models.EmailField()
         
 class Root(models.Model):
 

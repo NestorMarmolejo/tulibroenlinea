@@ -35,6 +35,7 @@ urlpatterns = [
     path('moduloRoot/', moduloRoot),
 
     path('moduloRoot/crearAdmin', moduloRoot_crearAdmin),
+    path('moduloRoot/crearAdmin2', moduloRoot_crearAdmin2),
     path('moduloRoot/genInforme', moduloRoot_genInforme),
 
 

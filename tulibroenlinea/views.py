@@ -70,6 +70,25 @@ def moduloRoot_crearAdmin(request):
     nombre = "Crear Administrador"
     return render(request, 'moduloRoot_crearAdmin.html', {"nombre":nombre})
 
+def moduloRoot_crearAdmin2(request):
+    nombre = "Crear Administrador"
+    nombre_admin = request.GET["nombre"]
+    apellido_admin = request.GET["apellido"]
+    dni_admin = request.GET["dni"]
+    correo_admin = request.GET["correo"]
+    fecha_admin = request.GET["fecha"]
+    sexo_admin = request.GET["sexo"]
+    lugar_admin = request.GET["lugar"]
+    direccion_admin = request.GET["direccion"]
+    usuario_admin = request.GET["usuario"]
+    contrasena_admin = request.GET["contrasena"]
+    adm = Administrador(dni_admin,usuario_admin, contrasena_admin, "admin", nombre_admin, apellido_admin, dni_admin, fecha_admin, lugar_admin, direccion_admin, sexo_admin, correo_admin)
+    usu = Usuario(dni_admin,usuario_admin, contrasena_admin, "admin")
+    adm.save()
+    usu.save()
+    noti = True
+    return render(request, 'moduloRoot_crearAdmin.html', {"nombre":nombre, "noti":noti})
+
 def moduloRoot_genInforme(request):
     nombre = "Generar informe"
     return render(request, 'moduloRoot_genInforme.html', {"nombre":nombre})
@@ -94,7 +113,7 @@ def moduloAdmin_Usuario_Crear2(request):
     direccion_usuario = request.GET["direccion"]
     usuario_usuario = request.GET["usuario"]
     contrasena_usuario = request.GET["contrasena"]
-    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario, correo_usuario, correo_usuario, True, True)
+    cli = Cliente(dni_usuario,usuario_usuario, contrasena_usuario, "cliente", nombre_usuario, apellido_usuario, dni_usuario, fecha_usuario, lugar_usuario, direccion_usuario, sexo_usuario, correo_usuario, " ", " ", False, False, False, " ", " ")
     usu = Usuario(dni_usuario,usuario_usuario, contrasena_usuario, "cliente")
     cli.save()
     usu.save()

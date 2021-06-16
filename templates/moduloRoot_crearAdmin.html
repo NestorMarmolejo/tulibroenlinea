@@ -5,41 +5,104 @@
 {% block content %}
 
 
+<div style="margin-bottom: 20px">
+    {% if noti %}
+    <p style="background-color: mediumseagreen">
+        Usuario creado con exito
+    </p>
+    {% endif %}
+</div>
+
 <div style="margin-left: 50px; margin-top: 50px;">
-    <h1>Datos del Administrador</h1>
-    <div style="margin-bottom: 20px;">
-    <input type="text" name="nombre" required="required" value="" placeholder="Nombre Completo" autocomplete="off">
-    </div>
-    <div style="margin-bottom: 20px;">
-    <input type="text" name="dni" required="required" value="" placeholder="DNI" autocomplete="off">
-    </div>
-    <div style="margin-bottom: 20px;">
-    <input type="email" name="correo" required="required" value="" placeholder="Correo Electronico" autocomplete="off">
-    </div>
-    <div style="margin-bottom: 20px;">
-    <input type="date" name="fecha" required="required" value="" placeholder="dd / mm / aa" autocomplete="off">
-    </div>
-    <div style="margin-bottom: 20px;">
-    <input type="text" name="sexo" required="required" value="" placeholder="Sexo" autocomplete="off">
-    </div>
-    <div style="margin-bottom: 20px;">
-    <input type="text" name="lugar" required="required" value="" placeholder="Lugar de Nacimiento" autocomplete="off">
-    </div>
-    <div style="margin-bottom: 20px;">
-    <input type="text" name="direccion" required="required" value="" placeholder="Direccion" autocomplete="off">
-    </div>
-    <div style="margin-bottom: 20px;">
-    <input type="text" name="usuario" required="required" value="" placeholder="Usuario" autocomplete="off">
-    </div>
-    <div style="margin-bottom: 20px;">
-    <input type="password" name="contrasena1" required="required" value="" placeholder="Contraseña" autocomplete="off">
-    </div>
-    <div style="margin-bottom: 20px;">
-    <input type="password" name="contrasena2" required="required" value="" placeholder="Confirmar Contraseña" autocomplete="off">
-    </div>
-    <div style="margin-bottom: 20px;">
-    <button>Crear</button>
-    </div>
+    <h2>Informacion del Administrador:</h2>
+    <form action="/moduloRoot/crearAdmin2" method="GET">
+        <div style="margin-bottom: 20px;">
+            <p>Nombres:</p>
+            <input type="text" name="nombre" required="required" value="" placeholder="Nombres" autocomplete="off">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p>Apellidos:</p>
+            <input type="text" name="apellido" required="required" value="" placeholder="Apellidos" autocomplete="off">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p>DNI:</p>
+            <input type="text" name="dni" required="required" value="" placeholder="DNI" autocomplete="off" pattern="^[0-9]+" title="Debe contener solo numeros" maxlength="10" minlength="8">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p>Correo Electronico:</p>
+            <input type="email" name="correo" required="required" value="" placeholder="Correo Electronico"
+                autocomplete="off">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p>Fecha de nacimiento:</p>
+            <input type="date" name="fecha" required="required" value="" placeholder="dd / mm / aa" autocomplete="off" min="1920-01-01" max="2003-01-01">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p>Lugar de nacimiento:</p>
+            <select name="lugar">
+                <option value = ""> </option>
+                <option value = "Amazonas">Amazonas</option>
+                <option value = "Antioquia">Antioquia</option>
+                <option value = "Arauca">Arauca</option>
+                <option value = "Atlántico">Atlántico</option>
+                <option value = "Bolívar">Bolívar</option>
+                <option value = "Boyacá">Boyacá</option>
+		        <option value = "Caldas">Caldas</option>
+                <option value = "Caquetá">Caquetá</option>
+                <option value = "Casanare">Casanare</option>
+                <option value = "Cauca">Cauca</option>
+                <option value = "Cesar">Cesar</option>
+                <option value = "Chocó">Chocó</option>		            
+                <option value = "Córdoba">Córdoba</option>
+                <option value = "Cundinamarca">Cundinamarca</option>
+                <option value = "Guainía">Guainía</option>
+		        <option value = "Guaviare">Guaviare</option>
+                <option value = "Huila">Huila</option>
+                <option value = "La Guajira">La Guajira</option>
+                <option value = "Magdalena">Magdalena</option>
+		        <option value = "Meta">Meta</option>
+                <option value = "Nariño">Nariño</option>
+                <option value = "Norte de Santander">Norte de Santander</option>
+                <option value = "Putumayo">Putumayo</option>                
+                <option value = "Quindío">Quindío</option>  
+		        <option value = "Risaralda">Risaralda</option>
+                <option value = "San Andrés y Providencia">San Andrés y Providencia</option>
+                <option value = "Santander">Santander</option>
+                <option value = "Sucre">Sucre</option>
+                <option value = "Tolima">Tolima</option>
+                <option value = "Valle del Cauca">Valle del Cauca</option>
+                <option value = "Vaupés">Vaupés</option>
+                <option value = "Vichada">Vichada</option>
+              </select>
+            </div>
+            </select>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p>Sexo:</p>
+            <select name="sexo">
+                <option value="M">Masculino</option>
+                <option value="F">Femenino</option>
+                <option value="NN">No Binario</option>
+            </select>
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p>Direccion de domicilio:</p>
+            <input type="text" name="direccion" required="required" value="" placeholder="Direccion" autocomplete="off">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p>Usuario:</p>
+            <input type="text" name="usuario" required="required" value="" placeholder="Usuario" autocomplete="off">
+        </div>
+        <div style="margin-bottom: 20px;">
+            <p>Contraseña:</p>
+            <input type="password" name="contrasena" required="required" value="" placeholder="Contraseña"
+                autocomplete="off" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número y una letra mayúscula y minúscula, y al menos 8 caracteres o más">
+        </div>
+        <div>
+            <input type="submit" value="Guardar">
+        </div>
+    </form>
+
 </div>
 
 {% endblock %}
