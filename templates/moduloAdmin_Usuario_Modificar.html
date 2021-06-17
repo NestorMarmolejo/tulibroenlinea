@@ -64,7 +64,7 @@
         value="{{dni_usuario}}"
       />
     </div>
-    <input type="submit" value="buscar" />
+    <input type="submit" value="Buscar" />
   </form>
 
   <form action="/moduloAdmin/Usuario/Modificar3" method="GET">
@@ -124,7 +124,7 @@
     <div style="margin-bottom: 20px">
       <p>Lugar de nacimiento:</p>
       <select name="lugar">
-        <option value = ""> </option>
+        <option value = "{{lugar_usuario}}"> </option>
         <option value = "Amazonas">Amazonas</option>
         <option value = "Antioquia">Antioquia</option>
         <option value = "Arauca">Arauca</option>
@@ -164,6 +164,7 @@
     <div style="margin-bottom: 20px">
       <p>Sexo:</p>
       <select name="sexo">
+        <option value="{{sexo_usuario}}">Masculino</option>
         <option value="M">Masculino</option>
         <option value="F">Femenino</option>
         <option value="NN">No Binario</option>
@@ -220,13 +221,6 @@
     <input type="submit" value="Actualizar datos" />
   </form>
 
-  <div style="margin-bottom: 20px">
-    {% if noti %}
-    <p style="background-color: mediumseagreen">
-      Actualizacion realizada con exito
-    </p>
-    {% endif %}
-  </div>
 </div>
 
 {% endblock %}
