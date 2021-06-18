@@ -232,8 +232,8 @@ def moduloAdmin_Libro_Crear2(request):
         categoria_libro = request.POST.get('categoria')
         fechaP_libro = request.POST.get('fechaP')
         fechaL_libro = request.POST.get('fechaL')
-        libro = Libro(titulo_libro, autor_libro, desc_libro, genero_libro, editorial_libro, nroP_libro, precio_libro, issn_libro, idioma_libro, estado_libro, categoria_libro, fechaP_libro, fechaL_libro, caratula_libro)
-        libro.save()
+    libro = Libro(titulo_libro, autor_libro, desc_libro, genero_libro, editorial_libro, nroP_libro, precio_libro, issn_libro, idioma_libro, estado_libro, categoria_libro, fechaP_libro, fechaL_libro, caratula_libro)
+    libro.save()
     noti = True
     return render(request, 'moduloAdmin_Libro_Crear.html', {"nombre":nombre, "noti":noti})
 
@@ -355,7 +355,7 @@ def moduloUsuario(request):
             noti= True
     except:
         noti = False
-    return render(request, 'moduloUsuario.html', {"nombre":nombre, "perfil":perfil})
+    return render(request, 'moduloUsuario.html', {"nombre":nombre, "noti":noti})
 
 def moduloUsuario_Usuario_Modificar(request):
     nombre = "Modificar Usuario"
