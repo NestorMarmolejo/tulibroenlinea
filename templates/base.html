@@ -1,33 +1,97 @@
-<html style="background: lightblue;">
+<html style="background: rgb(255, 255, 255);">
 
 <style>
-
-    #titulo{
+    #titulo {
         margin: 0;
         padding: 0;
-        color: white; 
-        text-align: left; 
-        font: initial;
-        font-size: 60px; 
+        color: rgb(29, 28, 28);
+        text-align: left;
+        font: menu;
+        font-size: 60px;
+    }
+
+    #footer {
+        background: #757575;
+        color: #B9BABC;
+        list-style: none;
+    }
+
+    #bottom-footer {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        background: #4e4e4e;
+        list-style: none;
+    }
+
+    .footer {
+        margin: 30px 0px;
+        list-style: none;
+    }
+
+    .footer .footer-title {
+        color: rgb(226, 226, 226);
+        text-transform: uppercase;
+        font-size: 18px;
+        margin: 0px 0px 30px;
+        list-style: none;
+    }
+
+    .copyright {
+        margin-top: 0px;
+        display: block;
+        font-size: 12px;
+        list-style: none;
     }
 
 </style>
+
 <head>
 
+    <img src="/media/icon.png" width="150" height="150" align="left">
     <title>
         {% block tittle %} {% endblock %}
     </title>
+    
 
 </head>
 
 <body>
 
     <h1 id="titulo">Tu libro en linea</h1>
-    
+
     {% include "barra.html" %}
 
 
     {% block content %} {% endblock %}
-    <p style="background-color: cornflowerblue; color: white; text-align: right; width: 100%; ">Gracias por su visita</p>
+
+    <footer id="footer">
+        <div class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-xs-6">
+                        <div class="footer">
+                            <h3 class="footer-title">INFORMACIÓN LEGAL</h3>
+                            <p>tleladn.herokuapp.com<p>
+                            <p>3148374481-(6)3458585<p>
+                            <p>Cra 4 No. 28-62 - Pereira - Colombia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="bottom-footer" class="section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <span class="copyright">
+                            © TuLibroEnLinea 2021-Todos los derechos reservados
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
+
 </html>
