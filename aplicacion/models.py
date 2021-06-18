@@ -71,6 +71,7 @@ class Cliente(models.Model):
 
 class Libro(models.Model):
     
+    issn = models.CharField(max_length = 20, primary_key = True)
     titulo = models.CharField(max_length = 20)
     autor = models.CharField(max_length = 20)
     descripcion = models.CharField(max_length = 120)
@@ -78,7 +79,6 @@ class Libro(models.Model):
     editorial = models.CharField(max_length = 20)
     nroPaginas = models.CharField(max_length = 4)
     precio = models.IntegerField()
-    ISSN = models.CharField(max_length = 20, primary_key = True)
     idioma = models.CharField(max_length = 20)
     estado = models.CharField(max_length = 20)
     categoria = models.CharField(max_length = 20)

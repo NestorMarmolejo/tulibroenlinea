@@ -217,22 +217,21 @@ def moduloAdmin_Libro_Crear(request):
 
 def moduloAdmin_Libro_Crear2(request):
     nombre = "Crear Libro"
-    if request.POST:
-        caratula_libro = request.FILES.get('foto')
-        autor_libro = request.POST.get ('autor')
-        desc_libro = request.POST.get('descripcion')
-        titulo_libro = request.POST.get('titulo')
-        genero_libro = request.POST.get('genero')
-        editorial_libro = request.POST.get('editorial')
-        nroP_libro = request.POST.get('nroP')
-        precio_libro = request.POST.get('precio')
-        issn_libro = request.POST.get('isnn')
-        idioma_libro = request.POST.get('idioma')
-        estado_libro = request.POST.get('estado')
-        categoria_libro = request.POST.get('categoria')
-        fechaP_libro = request.POST.get('fechaP')
-        fechaL_libro = request.POST.get('fechaL')
-    libro = Libro(titulo_libro, autor_libro, desc_libro, genero_libro, editorial_libro, nroP_libro, precio_libro, issn_libro, idioma_libro, estado_libro, categoria_libro, fechaP_libro, fechaL_libro, caratula_libro)
+    caratula_libro = request.FILES.get('foto')
+    autor_libro = request.POST.get ('autor')
+    desc_libro = request.POST.get('descripcion')
+    titulo_libro = request.POST.get('titulo')
+    genero_libro = request.POST.get('genero')
+    editorial_libro = request.POST.get('editorial')
+    nroP_libro = request.POST.get('nroP')
+    precio_libro = request.POST.get('precio')
+    issn_libro = request.POST.get('isnn')
+    idioma_libro = request.POST.get('idioma')
+    estado_libro = request.POST.get('estado')
+    categoria_libro = request.POST.get('categoria')
+    fechaP_libro = request.POST.get('fechaP')
+    fechaL_libro = request.POST.get('fechaL')
+    libro = Libro(issn_libro, titulo_libro, autor_libro, desc_libro, genero_libro, editorial_libro, nroP_libro, precio_libro, idioma_libro, estado_libro, categoria_libro, fechaP_libro, fechaL_libro, caratula_libro)
     libro.save()
     noti = True
     return render(request, 'moduloAdmin_Libro_Crear.html', {"nombre":nombre, "noti":noti})
@@ -243,8 +242,8 @@ def moduloAdmin_Libro_Modificar(request):
 
 def moduloAdmin_Libro_Modificar2(request):
     nombre = "Modificar Libro"
-    issn = request.GET["issn"]
-    lib = Libro.objects.filter(ISSN = issn)
+    issn1 = request.GET["issn"]
+    lib = Libro.objects.filter(issn = issn1)
     caratula_libro = lib[0].caratula
     autor_libro = lib[0].autor
     desc_libro = lib[0].descripcion
@@ -263,23 +262,22 @@ def moduloAdmin_Libro_Modificar2(request):
 
 def moduloAdmin_Libro_Modificar3(request):
     nombre = "Modificar Libro"
-    if request.POST:
-        caratula_libro = request.FILES.get('foto')
-        autor_libro = request.POST.get ('autor')
-        desc_libro = request.POST.get('descripcion')
-        titulo_libro = request.POST.get('titulo')
-        genero_libro = request.POST.get('genero')
-        editorial_libro = request.POST.get('editorial')
-        nroP_libro = request.POST.get('nroP')
-        precio_libro = request.POST.get('precio')
-        issn_libro = request.POST.get('isnn')
-        idioma_libro = request.POST.get('idioma')
-        estado_libro = request.POST.get('estado')
-        categoria_libro = request.POST.get('categoria')
-        fechaP_libro = request.POST.get('fechaP')
-        fechaL_libro = request.POST.get('fechaL')
-        libro = Libro(titulo_libro, autor_libro, desc_libro, genero_libro, editorial_libro, nroP_libro, precio_libro, issn_libro, idioma_libro, estado_libro, categoria_libro, fechaP_libro, fechaL_libro, caratula_libro)
-        libro.save()
+    caratula_libro = request.FILES.get('foto')
+    autor_libro = request.POST.get ('autor')
+    desc_libro = request.POST.get('descripcion')
+    titulo_libro = request.POST.get('titulo')
+    genero_libro = request.POST.get('genero')
+    editorial_libro = request.POST.get('editorial')
+    nroP_libro = request.POST.get('nroP')
+    precio_libro = request.POST.get('precio')
+    issn_libro = request.POST.get('isnn')
+    idioma_libro = request.POST.get('idioma')
+    estado_libro = request.POST.get('estado')
+    categoria_libro = request.POST.get('categoria')
+    fechaP_libro = request.POST.get('fechaP')
+    fechaL_libro = request.POST.get('fechaL')
+    libro = Libro(issn_libro, titulo_libro, autor_libro, desc_libro, genero_libro, editorial_libro, nroP_libro, precio_libro, idioma_libro, estado_libro, categoria_libro, fechaP_libro, fechaL_libro, caratula_libro)
+    libro.save()
     noti = True
     return render(request, 'moduloAdmin_Libro_Modificar.html', {"nombre":nombre, "noti": noti})
 
@@ -297,8 +295,8 @@ def moduloAdmin_Libro_Eliminar(request):
 
 def moduloAdmin_Libro_Eliminar2(request):
     nombre = "Eliminar Libro"
-    issn = request.GET["issn"]
-    lib = Libro.objects.filter(ISSN = issn)
+    issn1 = request.GET["issn"]
+    lib = Libro.objects.filter(issn = issn1)
     caratula_libro = lib[0].caratula
     autor_libro = lib[0].autor
     desc_libro = lib[0].descripcion
@@ -317,8 +315,8 @@ def moduloAdmin_Libro_Eliminar2(request):
 
 def moduloAdmin_Libro_Eliminar3(request):
     nombre = "Eliminar Libro"
-    issn = request.GET["issn"]
-    lib = Libro.objects.filter(ISSN = issn)
+    issn1 = request.GET["issn"]
+    lib = Libro.objects.filter(issn = issn1)
     lib.delete()
     noti = True
     return render(request, 'moduloAdmin_Libro_Eliminar.html', {"nombre":nombre, "noti": noti})
